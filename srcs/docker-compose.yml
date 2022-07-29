@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    mariadb:
+        build:
+           context: requirements/mariadb/.
+           dockerfile: ./Dockerfile
+        image: mariadb
+        container_name: mariadb
+        restart: always
+        networks:
+                - backend
+        env_file:
+                - .env
+networks:
+  backend:
